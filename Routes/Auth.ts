@@ -6,6 +6,7 @@ const router = express.Router();
 router.post('/agregarProducto',metodosProductos.createProduct); // Funcional
 router.get('/verProductos', metodosProductos.GetProductos); // Nuevo endpoint para ver productos
 router.post('/compraProducto',metodosProductos.compraProducto)
+router.get('/ventasTotales',metodosProductos.ventas)
 
 export default router;
 

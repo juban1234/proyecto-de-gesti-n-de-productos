@@ -21,6 +21,12 @@ class productos {
         return rows;
     }
 
+    static async ventasTotales() {
+        const sql = 'SELECT SUM(pago) AS totalVentas FROM ventas';
+        const [rows]: any = await db.execute(sql);
+        return rows;
+    }
+
 }
 
 export default productos;

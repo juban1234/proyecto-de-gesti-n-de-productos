@@ -39,6 +39,14 @@ class metodosProductos{
 
   }
 
+  static async ventas(req: Request, res: Response){
+    const result = await productos.ventasTotales();
+
+    res.status(200).json({
+      message: `Ventas totales obtenidas corresonde a ${result[0].totalVentas}`,
+    });
+  }
+
 }
 
 export default metodosProductos;
