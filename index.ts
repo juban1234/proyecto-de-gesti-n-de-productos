@@ -13,11 +13,7 @@ app.use(cors());
 
 app.use("/Stock", Auth)
 
-
-
-
-
-const PORT = process.env.DB_PORT || 10101;
+const PORT = 10101;
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

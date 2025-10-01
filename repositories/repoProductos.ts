@@ -7,6 +7,20 @@ class productos {
         const [rows]: any = await db.execute(sql, params);
         return rows;
     }
+
+    static async verProductos() {
+        const sql = 'SELECT * FROM productos';
+        const [rows]: any = await db.execute(sql);
+        return rows;
+    }
+
+    static async comprarProducto(nombreProducto: string, cantidad: number) {
+        const sql = 'call compraProducto(?, ?)';
+        const values = [nombreProducto, cantidad];
+        const [rows]: any = await db.execute(sql, values);
+        return rows;
+    }
+
 }
 
 export default productos;
