@@ -45,20 +45,20 @@ class metodosProductos {
     const { nombreProducto, cantidad } = req.body;
     
     try{
+      
       const result = await productos.comprarProducto(nombreProducto, cantidad);
       return res.status(200).json({
       message: "Producto comprado correctamente",
       result
     });
     }catch (error: any) {
-        
-        if (error.code === 'ER_SIGNAL_EXCEPTION' && error.sqlMessage === 'No hay suficiente stock para realizar esta venta') {
-            return res.status(400).json({
-                message: error.sqlMessage, 
-                error: error.message         
-            });
-        }
 
+        if (error.code === 'ER_SIGNAL_EXCEPTION' && error.sqlMessage === 'No hay suficiente stock para realizar esta venta') {
+          return res.status(400).json({
+              message: error.sqlMessage, 
+              error: error.message         
+          });
+        }
         
         console.error("Error al procesar la compra:", error); 
         return res.status(500).json({

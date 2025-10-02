@@ -71,6 +71,7 @@ end //
 
 DELIMITER ;
 
+select * from productos; 
 
 
 
